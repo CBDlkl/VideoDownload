@@ -1,5 +1,5 @@
 import urllib.request
-import json,sys
+import json,sys,os
 from pyquery import PyQuery as pq
 
 host = "http://edu.iqianyue.com/%s"
@@ -30,7 +30,7 @@ for i in doc("h4 a"):
     video_id = doc(".col-md-8").eq(0).find("div").eq(0).attr("id").replace("id_video_container_","")
     js_json = urllib.request.urlopen("http://play.video.qcloud.com/index.php?interface=Vod_Api_GetPlayInfo&1=1&file_id=%s&app_id=1251728304&refer=edu.iqianyue.com"%video_id).read().decode('utf-8')
     vurl = json.loads(js_json)['data']['file_info']['image_video']['videoUrls'][0]['url']
-    urllib.request.urlretrieve(vurl, "机器学习_%s.mp4"%pq(i).text(),Schedule)
+    urllib.request.urlretrieve(vurl, os.path.join(os.path.abspath('.'), '''video\\%s.mp4 ''' % pq(i).text().replace(':','_')), Schedule)
 
 
 
