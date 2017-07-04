@@ -16,7 +16,7 @@ def Schedule(a,b,c):
 def openUrl(url):
     req = urllib.request.Request(url)
     req.add_header("User-Agent","Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1")
-    req.add_header("Cookie","PHPSESSID=ftk3id35tbaijrlhj5pr5clvg6")
+    req.add_header("Cookie","PHPSESSID=") # 网站是收费的，登陆自己账号，使用自己的SessionID
     req.add_header("Referer","http://edu.iqianyue.com/index_course_study_cid_11")
     req.add_header("Host","edu.iqianyue.com")
     r = urllib.request.urlopen(req)
